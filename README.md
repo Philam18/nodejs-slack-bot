@@ -7,8 +7,9 @@ This is a bot for delivering real-time weather information from OpenWeatherMap b
 
 ## Requirements
 ### Set up the Slack bot-user
-Slack requires you to add a bot configuration to your workspace. 
-Go to **_your-workspace-name_**.slack.com/apps/A0F7YS25R-bots and add a new configuration.
+Slack requires you to add a bot configuration to your workspace. Go to 
+ **_your-workspace-name_**.slack.com/apps/A0F7YS25R-bots 
+and add a new configuration.
 Alternatively, you can:
 - going to your workspace settings at **_your-workspace-name_**.slack.com/**apps/manage**
 - searching for the 'Bots' app and adding a new configuration to your workspace
