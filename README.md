@@ -24,9 +24,17 @@ You will want to grab the latest NodeJS/npm ([here's a tutorial for Ubuntu](http
 After installation and verifying you have the latest version, you can create a new folder, clone the repository, and run your `npm install` to grab the dependencies.
 
 ### OWM API Key
-Head to OpenWeatherMap and sign up for current weather data: https://openweathermap.org/appid
-Keep the API key handy (in addition to the Slack bot key)- you will need it when setting up your enviornment variables
+Head to [OpenWeatherMap](https://openweathermap.org/appid) and sign up for current weather data.
+Keep the API key handy (in addition to the Slack bot key mentioned previously); you will need it when setting up your enviornment variables in the next step.
+(The OWM-API docs also provide great information on how to further use the API).
 
+### Setting up the envrionment variables
+After you've cloned the repository and installed your dependencies, your keys must also be placed into environment variables.
+Create a new file `.env` and put the following lines of code inside:
+```
+SLACK_BOT_TOKEN=<SECRET KEY HERE>
+OWM_API_KEY=<OWM API KEY GOES HERE>
+```
 
 
 
