@@ -38,3 +38,8 @@ OWM_API_KEY=<OWM API KEY GOES HERE>
 
 
 
+
+## USAGE
+
+
+
