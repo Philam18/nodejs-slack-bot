@@ -6,7 +6,7 @@
 **/
 require('dotenv').config();
 //SLACK BOT SECRET KEY FOR AUTHENTICATION
-const token = 'xoxb-315970116004-druDZBr9IX0IkZx6752wsX1S';
+const token = process.env.SLACK_BOT_TOKEN;
 //IMPORT MODULES FOR SLACK API
 const {RtmClient, WebClient, CLIENT_EVENTS, RTM_EVENTS} = require('@slack/client');
 //IMPORT MODULE FOR OWM API CALLS
@@ -18,8 +18,10 @@ const rtm = new RtmClient(token,{
   dataStore : false,
   useRtmConnect : true
 });
-//REGEX BOT ID TO MATCH @MENTIONS DURING MESSAGE EVENTS
+//REGEX FOR PUBLIC CHANNEL EVENTS
 var BOT_ID_REGEX;
+//REGEX FOR DM CHANNEL EVENTS
+var BOT_DIRECT_CHANNEL_REGEX = /^D[A-Z0-9]+$/;
 //Create a new instance of a Web Client
 const web = new WebClient(token);
 //STORE BOT CHANNELS
@@ -71,24 +73,18 @@ rtm.on(RTM_EVENTS.MESSAGE, (message) => {
         (!message.subtype && message.user === appData.selfId) ) {
      return;
    }
-  // // Skip messages that aren't inside the bot's dedicated channel
-  // else if(message.channel !== botChannel.id){
-  //   return;
-  // }
-  // // Skip messages that aren't mentions to the bot
-  // else if(BOT_ID_REGEX.exec(message.text) == null){
-  //   return;
-  // }
-  //Perform a task on the message....
-  // var plainText = BOT_ID_REGEX[Symbol.replace](message.text,'');
-  // console.log("Text: " + plainText);
-  // owm.getWeather(plainText);
-  // console.log(result);
-  console.log("----------------- Message receieved -------------------");
-  console.log(message);
-  console.log("-------------------------------------------------------");
+  // Only accept message events from bot-@mention and direct-messages
+  else if(BOT_ID_REGEX.exec(message.text) !== null || BOT_DIRECT_CHANNEL_REGEX.exec(message.channel)){
+    //Get cityName from message.text to make OWM API call
+    //Remove any @mention text before the message
+    var cityName = BOT_ID_REGEX[Symbol.replace](message.text,'');
+    owm.getWeather(cityName,(response)=>{
+      console.log(response);
+      rtm.sendMessage(response, message.channel);
+    });
+    return;
+  }
 
-  //rtm.sendMessage(result, botChannel.id);
 });
 
 //Start the client!

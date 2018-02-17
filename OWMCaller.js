@@ -5,7 +5,6 @@ const OWM_API_KEY = process.env.OWM_API_KEY;
 const OWM_UNIT_METRIC = 'metric';
 const OWM_UNIT_IMPERIAL = 'imperial';
 function getWeather(cityName, callback){
-  var result = {};
   //Build our API call and then make the callback
   const options = {
     uri : 'http://api.openweathermap.org/data/2.5/weather',
@@ -19,19 +18,29 @@ function getWeather(cityName, callback){
 
   request(options).
   then((response)=>{
-    //Build location information
-    result.location = response.name + ", " + response.sys.country;
-    //Build condition information
-    result.conditions = [];
-    for(i in response.weather){
-      result.conditions.push(response.weather[i].description);
+    console.log(response);
+    let result = "";
+    //Get location information
+    result += "Location: " + response.name + ", " + response.sys.country + "\n";
+    //Get condition information
+    result += "Conditions: ";
+    for(let i = 0; i < response.weather.length; i++){
+      result += response.weather[i].description;
+      if(i+1 < response.weather.length){
+        result += ", ";
+      }else{
+        result += "\n";
+      }
     }
-    //Build temperature information
-    result.temperature = response.main.temp;
+    //Get temperature information
+    result += "Temperature: " + response.main.temp + "\n";
+    console.log("-------------------[OWM Success]-------------------");
     callback(result);
+    console.log("---------------------------------------------------");
   }).catch((error)=>{
-    //If request returned an error
-    if(error != null) return console.log("ERROR: " + error);
+    console.log("--------------------[OWM Error]--------------------");
+    callback(`Couldn't get weather information for '${cityName}'`);
+    console.log("---------------------------------------------------");
   });
   //return result;
 }
