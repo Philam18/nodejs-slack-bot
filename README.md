@@ -39,7 +39,7 @@ OWM_API_KEY=<OWM API KEY GOES HERE>
 You can proceed to proceed to start the application with `node app.js`
 
 ## Usage
-*When you first add the application to your Slack workspace, the bot will not be added to any existing channels.*  
+*Remember, when you first add the application to your Slack workspace, the bot will not be added to any existing channels!*  
 #### There are two ways get the bot to respond to a query:
 ##### Public/Private channels 
 The bot must be a member of to this channel to respond.  
