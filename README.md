@@ -39,7 +39,20 @@ OWM_API_KEY=<OWM API KEY GOES HERE>
 You can proceed to proceed to start the application with `node app.js`
 
 ## Usage
-There are two main ways to interact with the bot: either through 
+*When you first add the application to your Slack workspace, the bot will not be added to any existing channels.*  
+#### There are two ways get the bot to respond to a query:
+##### Public/Private channels 
+The bot must be a member of to this channel to respond.  
+Add an **@mention** to the **beginning** of your message.
+##### A direct message to the bot
+This method doesn't require an **@mention** in the head of your message.  
+
+To indicate your location, simply provide the name of a town, city, country (refer to the [OWM docs](https://openweathermap.org/current#one) for more help):  
+`@bot-name cityName`  
+You can also specify the state or country using a commma proceeded by the country code:  
+`@bot-name cityName,countryName`  
+![alt text](https://i.imgur.com/yGmf8da.gif "Making a query")
+
 
 
 
