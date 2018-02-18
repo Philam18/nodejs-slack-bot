@@ -20,7 +20,7 @@ Alternatively, you can:
 **NOTE**: Keep your bot secret-token handy and secret for later- it is necessary for connecting to the Slack client
 
 ### NodeJS & npm
-You will want to grab the latest NodeJS/npm ([here's a tutorial for Ubuntu](https://tecadmin.net/install-latest-nodejs-npm-on-ubuntu/)).
+You will want to grab the latest NodeJS/npm.
 After installation and verifying you have the latest version, you can create a new folder, **clone the repository**, and run your `npm install` to grab the dependencies.
 
 ### OWM API Key
@@ -29,15 +29,14 @@ Keep the API key handy (in addition to the Slack bot key mentioned previously); 
 (The OWM-API docs also provide great information on how to further use the API).
 
 ### Setting up the envrionment variables
-After you've cloned the repository and installed your dependencies, your keys must also be placed into environment variables.
-Create a new file `.env` and put the following lines of code inside:
+After the repository has been cloned, NodeJS and npm updated, and dependency modules installed, the last step is to place your secret keys into the environment variables.
+Create a new file `.env` and add the following lines of text:
 ```
 SLACK_BOT_TOKEN=<SECRET KEY HERE>
 OWM_API_KEY=<OWM API KEY GOES HERE>
 ```
 
-### Running
-After setting up the environment variables you can proceed to start the bot with `nodeapp.js`
+You can proceed to proceed to start the application with `node app.js`
 
 ## Usage
 There are two main ways to interact with the bot: either through 
