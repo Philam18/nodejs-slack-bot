@@ -5,7 +5,7 @@ This is a bot for delivering real-time weather information from OpenWeatherMap b
 - [Events](https://api.slack.com/events-api) API
 - [Node Slack SDK](https://github.com/slackapi/node-slack-sdk)
 
-## Requirements
+## Installation
 ### Set up the Slack bot-user
 Slack requires you to add a bot configuration to your workspace. Head to
 [**_your-workspace-name_**.slack.com/apps/A0F7YS25R-bots](https://slack.com/apps/A0F7YS25R-bots)
@@ -21,7 +21,7 @@ Alternatively, you can:
 
 ### NodeJS & npm
 You will want to grab the latest NodeJS/npm ([here's a tutorial for Ubuntu](https://tecadmin.net/install-latest-nodejs-npm-on-ubuntu/)).
-After installation and verifying you have the latest version, you can create a new folder, clone the repository, and run your `npm install` to grab the dependencies.
+After installation and verifying you have the latest version, you can create a new folder, **clone the repository**, and run your `npm install` to grab the dependencies.
 
 ### OWM API Key
 Head to [OpenWeatherMap](https://openweathermap.org/appid) and sign up for current weather data.
@@ -36,10 +36,11 @@ SLACK_BOT_TOKEN=<SECRET KEY HERE>
 OWM_API_KEY=<OWM API KEY GOES HERE>
 ```
 
-
-
+### Running
+After setting up the environment variables you can proceed to start the bot with `nodeapp.js`
 
 ## Usage
+There are two main ways to interact with the bot: either through 
 
 
 
